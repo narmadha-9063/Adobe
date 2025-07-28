@@ -1,0 +1,14 @@
+FROM python:3.10-slim
+
+# Set working directory inside the container
+WORKDIR /app
+
+# Copy the app folder (main.py, input, output) into the container
+COPY . .
+
+# Install required Python packages
+RUN pip install pymupdf
+RUN pip install pdfplumber
+
+# Default command to run
+CMD ["python", "main.py"]
